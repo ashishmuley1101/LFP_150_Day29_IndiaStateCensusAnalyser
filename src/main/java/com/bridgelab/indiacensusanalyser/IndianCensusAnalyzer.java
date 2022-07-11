@@ -11,12 +11,12 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 public class IndianCensusAnalyzer {
 
-	public String PATH = "D:\\JavaPratice\\Day29\\resource\\IndiaStateCensusData.csv";
+	 String path = "D:\\JavaPratice\\Day29\\resource\\IndiaStateCensusData.csv";
 	
-	public int loadIndiaCensusData() throws CensusAnalyserException {
+	public int loadIndiaCensusData(String path) throws CensusAnalyserException {
 
 		try {
-			Reader reader = Files.newBufferedReader(Paths.get(PATH));
+			Reader reader = Files.newBufferedReader(Paths.get(path));
 			CsvToBeanBuilder<IndiaCensusCSV> csvCsvToBeanBuilder = new CsvToBeanBuilder<IndiaCensusCSV>(reader);
 			csvCsvToBeanBuilder.withType(IndiaCensusCSV.class);
 			csvCsvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
@@ -34,18 +34,18 @@ public class IndianCensusAnalyzer {
 		}
 	}
 
-	public static void main(String[] args) {
-		System.out.println("******************Indian Census Analyzer******************");
-		
-		try {
-			IndianCensusAnalyzer census = new IndianCensusAnalyzer();
-			int records = census.loadIndiaCensusData();
-			System.out.println(records+ " records in india state  census analyser csv file.");
-		} catch (CensusAnalyserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+//	public static void main(String[] args) {
+//		System.out.println("******************Indian Census Analyzer******************");
+//		
+//		try {
+//			IndianCensusAnalyzer census = new IndianCensusAnalyzer();
+//			int records = census.loadIndiaCensusData();
+//			System.out.println(records+ " records in india state  census analyser csv file.");
+//		} catch (CensusAnalyserException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 }
