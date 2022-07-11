@@ -3,7 +3,7 @@ package com.bridgelab.indiacensusanalyser;
 public class CensusAnalyserException extends Throwable {
 
 	private final String message;
-    private final ExceptionType type;
+    private ExceptionType type;
 
     enum ExceptionType {
         CENSUS_FILE_PROBLEM
@@ -11,6 +11,14 @@ public class CensusAnalyserException extends Throwable {
 
     public CensusAnalyserException(String message, ExceptionType type) {
         this.message = message;
-        this.type = type;
+        this.setType(type);
     }
+
+	public ExceptionType getType() {
+		return type;
+	}
+
+	public void setType(ExceptionType type) {
+		this.type = type;
+	}
 }
